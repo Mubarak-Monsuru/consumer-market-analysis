@@ -19,7 +19,7 @@ Furthermore, the project aims to evaluate the effectiveness of promotional strat
 * Insights & Recommendations.
 
 
-## Tools
+## 4. Tools
 - Python
 - SQL
 - Power BI
