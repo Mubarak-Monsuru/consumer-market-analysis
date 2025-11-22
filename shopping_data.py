@@ -3,9 +3,8 @@ import pandas as pd
 from sqlalchemy import create_engine, text
 from dotenv import load_dotenv
 
-
 # Extract & Transform Function
-def extract_transform(file_path: str):
+def extract_transform(file_path):
     """
     Load, clean, and preprocess dataset.
     """
@@ -14,16 +13,11 @@ def extract_transform(file_path: str):
     # Standardize column names
     df.columns = df.columns.str.lower().str.replace(' ', '_')
 
-    # Ensure customer_id is string
-    df['customer_id'] = df['customer_id'].astype(str)
-    assert df['customer_id'].dtype == 'object'
-
     print("Data extracted and transformed successfully!")
     return df
 
-
 # Feature Engineering Function
-def feature_engineering(df: pd.DataFrame) -> pd.DataFrame:
+def feature_engineering(df: pd.DataFrame):
     """
     Add new features (rating category and age group).
     """
@@ -39,7 +33,6 @@ def feature_engineering(df: pd.DataFrame) -> pd.DataFrame:
 
     print("Feature engineering completed successfully!")
     return df
-
 
 # Load Function
 def load_to_postgres(df: pd.DataFrame, table_name: str, schema_name: str = "shopping_data"):
